@@ -135,7 +135,13 @@ exports.bigcommerceConfig = {
                             ? JSON.stringify(variables ? { variables: variables } : bodyObj)
                             : undefined;
                         headers = hasBody ? { 'Content-Type': 'application/json' } : undefined;
-                        return [4 /*yield*/, fetch(url, { method: method, body: body, headers: headers, credentials: 'include' })];
+                        return [4 /*yield*/, fetch(url, {
+                                method: method,
+                                body: body,
+                                headers: headers,
+                                credentials: 'include',
+                                mode: 'no-cors',
+                            })];
                     case 1:
                         res = _c.sent();
                         if (!res.ok) return [3 /*break*/, 3];
