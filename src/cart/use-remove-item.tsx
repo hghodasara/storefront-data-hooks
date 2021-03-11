@@ -5,7 +5,7 @@ import type { RemoveItemBody } from '../api/cart'
 import useCart, { Cart } from './use-cart'
 
 const defaultOpts = {
-  url: '/api/bigcommerce/cart',
+  url: 'http://localhost:4000/cart',
   method: 'DELETE',
 }
 

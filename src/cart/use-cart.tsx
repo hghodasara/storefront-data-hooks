@@ -4,7 +4,7 @@ import useCommerceCart, { CartInput } from '.././commerce/cart/use-cart'
 import type { Cart } from '../api/cart'
 
 const defaultOpts = {
-  url: '/api/bigcommerce/cart',
+  url: 'http://localhost:4000/cart',
   method: 'GET',
 }
 

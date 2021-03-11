@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.extendHook = exports.fetcher = void 0;
 var use_cart_1 = __importDefault(require(".././commerce/cart/use-cart"));
 var defaultOpts = {
-    url: '/api/bigcommerce/cart',
+    url: 'http://localhost:4000/cart',
     method: 'GET',
 };
 exports.fetcher = function (options, _a, fetch) {
