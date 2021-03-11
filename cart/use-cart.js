@@ -25,8 +25,9 @@ exports.fetcher = function (options, _a, fetch) {
     return cartId ? fetch(__assign(__assign({}, defaultOpts), options)) : null;
 };
 function extendHook(customFetcher, swrOptions) {
-    var useCart = function () {
-        var response = use_cart_1.default(defaultOpts, [], customFetcher, __assign({ revalidateOnFocus: false }, swrOptions));
+    var useCart = function (params) {
+        var options = (params === null || params === void 0 ? void 0 : params.options) || {};
+        var response = use_cart_1.default(options, [], customFetcher, __assign({ revalidateOnFocus: false }, swrOptions));
         // Uses a getter to only calculate the prop when required
         // response.data is also a getter and it's better to not trigger it early
         Object.defineProperty(response, 'isEmpty', {

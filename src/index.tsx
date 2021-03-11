@@ -39,7 +39,7 @@ export const bigcommerceConfig: CommerceConfig = {
       credentials: 'include',
       mode: 'no-cors',
     })
-
+    console.log("res",res)
     if (res.ok) {
       const { data } = await res.json()
       return data

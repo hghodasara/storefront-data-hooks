@@ -144,6 +144,7 @@ exports.bigcommerceConfig = {
                             })];
                     case 1:
                         res = _c.sent();
+                        console.log("res", res);
                         if (!res.ok) return [3 /*break*/, 3];
                         return [4 /*yield*/, res.json()];
                     case 2:

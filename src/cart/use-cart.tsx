@@ -1,4 +1,4 @@
-import type { HookFetcher } from '.././commerce/utils/types'
+import type { FetcherOptions, HookFetcher } from '.././commerce/utils/types'
 import type { SwrOptions } from '.././commerce/utils/use-data'
 import useCommerceCart, { CartInput } from '.././commerce/cart/use-cart'
 import type { Cart } from '../api/cart'
@@ -22,8 +22,9 @@ export function extendHook(
   customFetcher: typeof fetcher,
   swrOptions?: SwrOptions<Cart | null, CartInput>
 ) {
-  const useCart = () => {
-    const response = useCommerceCart(defaultOpts, [], customFetcher, {
+  const useCart = (params?: { options: FetcherOptions }) => {
+    const options = params?.options || {}
+    const response = useCommerceCart(options, [], customFetcher, {
       revalidateOnFocus: false,
       ...swrOptions,
     })
