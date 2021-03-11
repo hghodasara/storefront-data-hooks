@@ -8,7 +8,7 @@ import { fetcher as removeFetcher } from './use-remove-item'
 import useCart, { Cart } from './use-cart'
 
 const defaultOpts = {
-  url: '/api/bigcommerce/cart',
+  url: 'https://api.goredemo.com/commerce/cart',
   method: 'PUT',
 }
 

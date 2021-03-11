@@ -56,7 +56,7 @@ var errors_1 = require(".././commerce/utils/errors");
 var use_add_item_1 = __importDefault(require(".././commerce/cart/use-add-item"));
 var use_cart_1 = __importDefault(require("./use-cart"));
 var defaultOpts = {
-    url: '/api/bigcommerce/cart',
+    url: 'https://api.goredemo.com/commerce/cart',
     method: 'POST',
 };
 exports.fetcher = function (options, _a, fetch) {

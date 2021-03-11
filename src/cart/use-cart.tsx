@@ -1,10 +1,14 @@
-import type { FetcherOptions, HookFetcher } from '.././commerce/utils/types'
+import type {
+  FetcherOptions,
+  HookFetcher,
+  HookFetcherOptions,
+} from '.././commerce/utils/types'
 import type { SwrOptions } from '.././commerce/utils/use-data'
 import useCommerceCart, { CartInput } from '.././commerce/cart/use-cart'
 import type { Cart } from '../api/cart'
 
 const defaultOpts = {
-  url: '/api/bigcommerce/cart',
+  url: 'https://api.goredemo.com/commerce/cart',
   method: 'GET',
 }
 
@@ -22,7 +26,7 @@ export function extendHook(
   customFetcher: typeof fetcher,
   swrOptions?: SwrOptions<Cart | null, CartInput>
 ) {
-  const useCart = (params?: { options: FetcherOptions }) => {
+  const useCart = (params?: { options: HookFetcherOptions }) => {
     const options = params?.options || defaultOpts
     const response = useCommerceCart(options, [], customFetcher, {
       revalidateOnFocus: false,
