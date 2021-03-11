@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import debounce from 'lodash.debounce'
-import type { HookFetcher } from '.././commerce/utils/types'
+import type { FetcherOptions, HookFetcher } from '.././commerce/utils/types'
 import { CommerceError } from '.././commerce/utils/errors'
 import useCartUpdateItem from '.././commerce/cart/use-update-item'
 import type { ItemBody, PhysicalItem, UpdateItemBody } from '../api/cart'
@@ -8,7 +8,7 @@ import { fetcher as removeFetcher } from './use-remove-item'
 import useCart, { Cart } from './use-cart'
 
 const defaultOpts = {
-  url: 'http://localhost:4000/cart',
+  url: '/api/bigcommerce/cart',
   method: 'PUT',
 }
 
@@ -38,10 +38,14 @@ export const fetcher: HookFetcher<Cart | null, UpdateItemBody> = (
 }
 
 function extendHook(customFetcher: typeof fetcher, cfg?: { wait?: number }) {
-  const useUpdateItem = (item: PhysicalItem) => {
+  const useUpdateItem = (
+    item: PhysicalItem,
+    params?: { options: FetcherOptions }
+  ) => {
+    const options = params?.options || {}
     const { mutate } = useCart()
     const fn = useCartUpdateItem<Cart | null, UpdateItemBody>(
-      defaultOpts,
+      options,
       customFetcher
     )
 

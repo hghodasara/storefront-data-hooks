@@ -58,7 +58,7 @@ var use_update_item_1 = __importDefault(require(".././commerce/cart/use-update-i
 var use_remove_item_1 = require("./use-remove-item");
 var use_cart_1 = __importDefault(require("./use-cart"));
 var defaultOpts = {
-    url: 'http://localhost:4000/cart',
+    url: '/api/bigcommerce/cart',
     method: 'PUT',
 };
 exports.fetcher = function (options, _a, fetch) {
@@ -78,10 +78,11 @@ exports.fetcher = function (options, _a, fetch) {
 };
 function extendHook(customFetcher, cfg) {
     var _this = this;
-    var useUpdateItem = function (item) {
+    var useUpdateItem = function (item, params) {
         var _a;
+        var options = (params === null || params === void 0 ? void 0 : params.options) || {};
         var mutate = use_cart_1.default().mutate;
-        var fn = use_update_item_1.default(defaultOpts, customFetcher);
+        var fn = use_update_item_1.default(options, customFetcher);
         return react_1.useCallback(lodash_debounce_1.default(function (input) { return __awaiter(_this, void 0, void 0, function () {
             var data;
             var _a, _b, _c;

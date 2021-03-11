@@ -1,11 +1,11 @@
 import { useCallback } from 'react'
-import { HookFetcher } from '.././commerce/utils/types'
+import { FetcherOptions, HookFetcher } from '.././commerce/utils/types'
 import useCartRemoveItem from '.././commerce/cart/use-remove-item'
 import type { RemoveItemBody } from '../api/cart'
 import useCart, { Cart } from './use-cart'
 
 const defaultOpts = {
-  url: 'http://localhost:4000/cart',
+  url: '/api/bigcommerce/cart',
   method: 'DELETE',
 }
 
@@ -26,10 +26,11 @@ export const fetcher: HookFetcher<Cart | null, RemoveItemBody> = (
 }
 
 export function extendHook(customFetcher: typeof fetcher) {
-  const useRemoveItem = (item?: any) => {
+  const useRemoveItem = (item?: any, params?: { options: FetcherOptions }) => {
+    const options = params?.options || {}
     const { mutate } = useCart()
     const fn = useCartRemoveItem<Cart | null, RemoveItemBody>(
-      defaultOpts,
+      options,
       customFetcher
     )
 

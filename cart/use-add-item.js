@@ -56,7 +56,7 @@ var errors_1 = require(".././commerce/utils/errors");
 var use_add_item_1 = __importDefault(require(".././commerce/cart/use-add-item"));
 var use_cart_1 = __importDefault(require("./use-cart"));
 var defaultOpts = {
-    url: 'http://localhost:4000/cart',
+    url: '/api/bigcommerce/cart',
     method: 'POST',
 };
 exports.fetcher = function (options, _a, fetch) {
@@ -70,9 +70,10 @@ exports.fetcher = function (options, _a, fetch) {
     return fetch(__assign(__assign(__assign({}, defaultOpts), options), { body: { item: item } }));
 };
 function extendHook(customFetcher) {
-    var useAddItem = function () {
+    var useAddItem = function (params) {
+        var options = (params === null || params === void 0 ? void 0 : params.options) || {};
         var mutate = use_cart_1.default().mutate;
-        var fn = use_add_item_1.default(defaultOpts, customFetcher);
+        var fn = use_add_item_1.default(options, customFetcher);
         return react_1.useCallback(function addItem(input) {
             return __awaiter(this, void 0, void 0, function () {
                 var data;
