@@ -135,7 +135,8 @@ exports.bigcommerceConfig = {
                             ? JSON.stringify(variables ? { variables: variables } : bodyObj)
                             : undefined;
                         headers = hasBody ? { 'Content-Type': 'application/json' } : undefined;
-                        console.log("headers", headers);
+                        console.info("headers", headers);
+                        console.info("url", url);
                         return [4 /*yield*/, fetch(url, {
                                 method: method,
                                 body: body,
@@ -145,7 +146,7 @@ exports.bigcommerceConfig = {
                             })];
                     case 1:
                         res = _c.sent();
-                        console.log("res", res);
+                        console.info("res", res);
                         if (!res.ok) return [3 /*break*/, 3];
                         return [4 /*yield*/, res.json()];
                     case 2:

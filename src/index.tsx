@@ -32,7 +32,8 @@ export const bigcommerceConfig: CommerceConfig = {
       ? JSON.stringify(variables ? { variables } : bodyObj)
       : undefined
     const headers = hasBody ? { 'Content-Type': 'application/json' } : undefined
-    console.log("headers",headers)
+    console.info("headers",headers)
+    console.info("url",url)
     const res = await fetch(url!, {
       method,
       body,
@@ -40,7 +41,7 @@ export const bigcommerceConfig: CommerceConfig = {
       credentials: 'include',
       mode: 'cors',
     })
-    console.log("res",res)
+    console.info("res",res)
     if (res.ok) {
       const { data } = await res.json()
       return data
