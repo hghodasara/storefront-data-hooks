@@ -135,12 +135,13 @@ exports.bigcommerceConfig = {
                             ? JSON.stringify(variables ? { variables: variables } : bodyObj)
                             : undefined;
                         headers = hasBody ? { 'Content-Type': 'application/json' } : undefined;
+                        console.log("headers", headers);
                         return [4 /*yield*/, fetch(url, {
                                 method: method,
                                 body: body,
                                 headers: headers,
                                 credentials: 'include',
-                                mode: 'no-cors',
+                                mode: 'cors',
                             })];
                     case 1:
                         res = _c.sent();
