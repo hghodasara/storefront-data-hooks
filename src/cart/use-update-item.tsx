@@ -6,9 +6,10 @@ import useCartUpdateItem from '.././commerce/cart/use-update-item'
 import type { ItemBody, PhysicalItem, UpdateItemBody } from '../api/cart'
 import { fetcher as removeFetcher } from './use-remove-item'
 import useCart, { Cart } from './use-cart'
+import { defaultUrl } from './var'
 
 const defaultOpts = {
-  url: 'https://api.goredemo.com/commerce/cart',
+  url: defaultUrl.url,
   method: 'PUT',
 }
 

@@ -3,9 +3,10 @@ import { FetcherOptions, HookFetcher } from '.././commerce/utils/types'
 import useCartRemoveItem from '.././commerce/cart/use-remove-item'
 import type { RemoveItemBody } from '../api/cart'
 import useCart, { Cart } from './use-cart'
+import { defaultUrl } from './var'
 
 const defaultOpts = {
-  url: 'https://api.goredemo.com/commerce/cart',
+  url: defaultUrl.url,
   method: 'DELETE',
 }
 

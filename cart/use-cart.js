@@ -16,8 +16,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.extendHook = exports.fetcher = void 0;
 var use_cart_1 = __importDefault(require(".././commerce/cart/use-cart"));
+var var_1 = require("./var");
 var defaultOpts = {
-    url: 'https://api.goredemo.com/commerce/cart',
+    url: var_1.defaultUrl.url,
     method: 'GET',
 };
 exports.fetcher = function (options, _a, fetch) {

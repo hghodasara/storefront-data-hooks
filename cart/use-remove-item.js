@@ -54,8 +54,9 @@ exports.extendHook = exports.fetcher = void 0;
 var react_1 = require("react");
 var use_remove_item_1 = __importDefault(require(".././commerce/cart/use-remove-item"));
 var use_cart_1 = __importDefault(require("./use-cart"));
+var var_1 = require("./var");
 var defaultOpts = {
-    url: 'https://api.goredemo.com/commerce/cart',
+    url: var_1.defaultUrl.url,
     method: 'DELETE',
 };
 exports.fetcher = function (options, _a, fetch) {

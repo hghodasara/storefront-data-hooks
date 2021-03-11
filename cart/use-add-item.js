@@ -55,8 +55,9 @@ var react_1 = require("react");
 var errors_1 = require(".././commerce/utils/errors");
 var use_add_item_1 = __importDefault(require(".././commerce/cart/use-add-item"));
 var use_cart_1 = __importDefault(require("./use-cart"));
+var var_1 = require("./var");
 var defaultOpts = {
-    url: 'https://api.goredemo.com/commerce/cart',
+    url: var_1.defaultUrl.url,
     method: 'POST',
 };
 exports.fetcher = function (options, _a, fetch) {

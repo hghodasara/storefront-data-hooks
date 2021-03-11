@@ -4,9 +4,10 @@ import { CommerceError } from '.././commerce/utils/errors'
 import useCartAddItem from '.././commerce/cart/use-add-item'
 import type { ItemBody, AddItemBody } from '../api/cart'
 import useCart, { Cart } from './use-cart'
+import { defaultUrl } from './var'
 
 const defaultOpts = {
-  url: 'https://api.goredemo.com/commerce/cart',
+  url: defaultUrl.url,
   method: 'POST',
 }
 

@@ -6,9 +6,10 @@ import type {
 import type { SwrOptions } from '.././commerce/utils/use-data'
 import useCommerceCart, { CartInput } from '.././commerce/cart/use-cart'
 import type { Cart } from '../api/cart'
+import { defaultUrl } from './var'
 
 const defaultOpts = {
-  url: 'https://api.goredemo.com/commerce/cart',
+  url: defaultUrl.url,
   method: 'GET',
 }
 
