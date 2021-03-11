@@ -42,7 +42,7 @@ function extendHook(customFetcher: typeof fetcher, cfg?: { wait?: number }) {
     item: PhysicalItem,
     params?: { options: FetcherOptions }
   ) => {
-    const options = params?.options || {}
+    const options = params?.options || defaultOpts
     const { mutate } = useCart()
     const fn = useCartUpdateItem<Cart | null, UpdateItemBody>(
       options,

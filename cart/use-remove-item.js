@@ -64,7 +64,7 @@ exports.fetcher = function (options, _a, fetch) {
 };
 function extendHook(customFetcher) {
     var useRemoveItem = function (item, params) {
-        var options = (params === null || params === void 0 ? void 0 : params.options) || {};
+        var options = (params === null || params === void 0 ? void 0 : params.options) || defaultOpts;
         var mutate = use_cart_1.default().mutate;
         var fn = use_remove_item_1.default(options, customFetcher);
         return react_1.useCallback(function removeItem(input) {

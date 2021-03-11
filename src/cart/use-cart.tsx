@@ -23,7 +23,7 @@ export function extendHook(
   swrOptions?: SwrOptions<Cart | null, CartInput>
 ) {
   const useCart = (params?: { options: FetcherOptions }) => {
-    const options = params?.options || {}
+    const options = params?.options || defaultOpts
     const response = useCommerceCart(options, [], customFetcher, {
       revalidateOnFocus: false,
       ...swrOptions,

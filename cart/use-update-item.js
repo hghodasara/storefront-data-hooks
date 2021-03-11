@@ -80,7 +80,7 @@ function extendHook(customFetcher, cfg) {
     var _this = this;
     var useUpdateItem = function (item, params) {
         var _a;
-        var options = (params === null || params === void 0 ? void 0 : params.options) || {};
+        var options = (params === null || params === void 0 ? void 0 : params.options) || defaultOpts;
         var mutate = use_cart_1.default().mutate;
         var fn = use_update_item_1.default(options, customFetcher);
         return react_1.useCallback(lodash_debounce_1.default(function (input) { return __awaiter(_this, void 0, void 0, function () {
