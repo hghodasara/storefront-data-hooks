@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import type { FetcherOptions, HookFetcher } from '.././commerce/utils/types'
+import type { HookFetcher } from '.././commerce/utils/types'
 import { CommerceError } from '.././commerce/utils/errors'
 import useCartAddItem from '.././commerce/cart/use-add-item'
 import type { ItemBody, AddItemBody } from '../api/cart'
@@ -34,10 +34,9 @@ export const fetcher: HookFetcher<Cart, AddItemBody> = (
 }
 
 export function extendHook(customFetcher: typeof fetcher) {
-  const useAddItem = (params?: { options: FetcherOptions }) => {
-    const options = params?.options || {}
+  const useAddItem = () => {
     const { mutate } = useCart()
-    const fn = useCartAddItem(options, customFetcher)
+    const fn = useCartAddItem(defaultOpts, customFetcher)
 
     return useCallback(
       async function addItem(input: AddItemInput) {

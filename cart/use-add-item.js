@@ -70,10 +70,9 @@ exports.fetcher = function (options, _a, fetch) {
     return fetch(__assign(__assign(__assign({}, defaultOpts), options), { body: { item: item } }));
 };
 function extendHook(customFetcher) {
-    var useAddItem = function (params) {
-        var options = (params === null || params === void 0 ? void 0 : params.options) || {};
+    var useAddItem = function () {
         var mutate = use_cart_1.default().mutate;
-        var fn = use_add_item_1.default(options, customFetcher);
+        var fn = use_add_item_1.default(defaultOpts, customFetcher);
         return react_1.useCallback(function addItem(input) {
             return __awaiter(this, void 0, void 0, function () {
                 var data;
