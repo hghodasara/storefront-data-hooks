@@ -1,5 +1,5 @@
 const defaultUrl = {
-  url: 'https://api.goredemo.com/commerce/cart',
+  url: process.env.NEXT_PUBLIC_CART_URL || '/api/bigcommerce/cart',
 }
-console.log('defaultUrl ENV', process)
+console.debug('defaultUrl', defaultUrl)
 export { defaultUrl }
