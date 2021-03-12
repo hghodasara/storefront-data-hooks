@@ -5,3 +5,4 @@ var defaultUrl = {
     url: 'https://api.goredemo.com/commerce/cart',
 };
 exports.defaultUrl = defaultUrl;
+console.log('defaultUrl ENV', process);
