@@ -5,4 +5,3 @@ var defaultUrl = {
     url: process.env.NEXT_PUBLIC_CART_URL || '/api/bigcommerce/cart',
 };
 exports.defaultUrl = defaultUrl;
-console.debug('defaultUrl', defaultUrl);
